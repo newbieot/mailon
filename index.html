@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pencarian Tarif Kartu Pos - Batam</title>
     
+    <!-- Optimasi SEO: Title Tag, Description, Keywords, & Open Graph by Ikhsan Radiansyah -->
+    <title>Pencarian Tarif Kartu Pos Batam by Ikhsan Radiansyah | PosNew Hub</title>
+    <meta name="description" content="Aplikasi pencarian cepat Tarif Kartu Pos dari Batam ke seluruh Indonesia. Dikembangkan oleh Ikhsan Radiansyah untuk kemudahan cek tarif Pos Indonesia (PosIND).">
+    <meta name="keywords" content="Tarif Kartu Pos, Pos Indonesia, PosIND, Batam, Ikhsan Radiansyah, Cek Ongkir Pos, Kode Pos, Danantara">
+    <meta name="author" content="Ikhsan Radiansyah">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph for Social Media Sharing -->
+    <meta property="og:title" content="Pencarian Tarif Kartu Pos Batam by Ikhsan Radiansyah">
+    <meta property="og:description" content="Cek tarif kartu pos secara instan dari Batam ke seluruh Indonesia.">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/POSIND_2023.svg/3840px-POSIND_2023.svg.png">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://admin-piol.posindonesia.co.id/media/logo-posind-dark-1.png" type="image/png">
+    
+    <!-- Memuat font Sora dan Gantari dari Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gantari:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
@@ -24,6 +40,9 @@
             margin: 0;
             padding: 0;
             color: var(--delft-blue);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* Header Logo */
@@ -49,7 +68,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: calc(100vh - 75px);
+            flex: 1; /* Supaya konten terdorong ke tengah & footer ke bawah */
             padding: 20px;
             box-sizing: border-box;
         }
@@ -254,13 +273,65 @@
             margin-bottom: 5px;
         }
 
+        /* Modern SaaS Footer (Dari index(38).html) */
+        .dashboard-footer {
+            width: 100%; 
+            background-color: #0f172a; 
+            border-top: 3px solid var(--cinnabar);
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            padding: 10px 24px; 
+            flex-shrink: 0; 
+            z-index: 20;
+            box-sizing: border-box;
+        }
+        .footer-brand { 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            color: #f8fafc; 
+            font-weight: 700; 
+            font-size: 0.95rem; 
+            letter-spacing: 0.5px; 
+        }
+        .footer-desc { 
+            color: #94a3b8; 
+            font-size: 0.8rem; 
+            margin: 0; 
+            display: none; 
+        }
+        .footer-creator-badge {
+            display: inline-flex; 
+            align-items: center; 
+            gap: 6px; 
+            background: rgba(242, 101, 34, 0.1); 
+            border: 1px solid rgba(242, 101, 34, 0.2); 
+            padding: 4px 12px; 
+            border-radius: 20px; 
+            color: #e2e8f0; 
+            font-size: 0.75rem; 
+            transition: all 0.3s ease;
+        }
+        .footer-creator-badge:hover { 
+            background: rgba(242, 101, 34, 0.2); 
+            border-color: rgba(242, 101, 34, 0.5); 
+        }
+        .footer-creator-badge strong { 
+            color: var(--cinnabar); 
+            font-weight: 600; 
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         /* Responsif */
-        @media (max-width: 768px) {
+        @media (min-width: 851px) { 
+            .footer-desc { display: block; } 
+        }
+        @media (max-width: 850px) {
             .postcard-inner {
                 flex-direction: column;
                 padding: 25px;
@@ -288,13 +359,19 @@
             h1 {
                 font-size: 26px;
             }
+            .dashboard-footer { 
+                flex-direction: column; 
+                gap: 8px; 
+                text-align: center; 
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Danantara_Indonesia.svg" alt="Logo Danantara" class="logo-danantara">
+        <!-- Logo Danantara (Diperbarui) -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Danantara_Indonesia_%28no_SW%29.svg/3840px-Danantara_Indonesia_%28no_SW%29.svg.png" alt="Logo Danantara" class="logo-danantara">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/POSIND_2023.svg/3840px-POSIND_2023.svg.png" alt="Logo PosIND" class="logo-pos">
     </header>
 
@@ -333,9 +410,21 @@
         </div>
     </main>
 
+    <!-- COMPACT DASHBOARD FOOTER (SEO IKHSAN RADIANSYAH) -->
+    <footer class="dashboard-footer">
+        <div class="footer-brand">
+            <i data-lucide="layers" style="color: #f26522; width: 18px; height: 18px;"></i>
+            PosNew Hub
+        </div>
+        <p class="footer-desc">Sistem utilitas ini dikembangkan secara independen untuk kemudahan pengecekan tarif kiriman Pos Indonesia.</p>
+        <div class="footer-creator-badge">
+            <i data-lucide="code-2" style="color: #f26522; width: 14px; height: 14px;"></i>
+            Inovasi oleh <strong>Ikhsan Radiansyah</strong> &copy; 2026
+        </div>
+    </footer>
+
     <script>
         // Mengarahkan ke file CSV mentah (raw) di repository GitHub Anda
-        // Catatan: Jika branch utama Anda adalah 'master', ganti 'main' di URL bawah ini menjadi 'master'.
         const csvUrl = 'https://raw.githubusercontent.com/newbieot/mailon/main/Tarif_Kartu_Pos_Batam_Lengkap.csv';
         let postalData = [];
 
@@ -424,6 +513,12 @@
 
         // Jalankan fetch saat halaman dimuat
         document.addEventListener("DOMContentLoaded", fetchCSV);
+    </script>
+    
+    <!-- Script Lucide Icons untuk render ikon di footer -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
     </script>
 
 </body>
