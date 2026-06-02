@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencarian Tarif Kartu Pos - Batam</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gantari:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variabel Warna sesuai Panduan Logo PosIND */
+        :root {
+            --delft-blue: #1C2D5A;
+            --cinnabar: #EF4123;
+            --bg-color: #F8F5F0;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Gantari', Arial, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--delft-blue);
+        }
+
+        /* Header Logo */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(28, 45, 90, 0.1);
+        }
+
+        .logo-danantara {
+            height: 45px;
+        }
+
+        .logo-pos {
+            height: 45px;
+        }
+
+        /* Container Utama */
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 75px);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Desain Kartu Pos */
+        .postcard {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 900px;
+            border-radius: 4px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding: 12px;
+            background-image: 
+                repeating-linear-gradient(
+                    -45deg,
+                    var(--cinnabar) 0,
+                    var(--cinnabar) 20px,
+                    transparent 20px,
+                    transparent 40px,
+                    var(--delft-blue) 40px,
+                    var(--delft-blue) 60px,
+                    transparent 60px,
+                    transparent 80px
+                );
+        }
+
+        .postcard-inner {
+            background-color: var(--bg-color);
+            display: flex;
+            padding: 40px;
+            box-sizing: border-box;
+            border-radius: 2px;
+            min-height: 450px;
+        }
+
+        .left-side {
+            flex: 1.2;
+            padding-right: 40px;
+            border-right: 2px dashed #B0B5C1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-side {
+            flex: 0.8;
+            padding-left: 40px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Area Prangko */
+        .stamp-area {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 95px;
+            border: 2px solid #B0B5C1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 11px;
+            color: #B0B5C1;
+            letter-spacing: 1px;
+            background-color: #f1ede5;
+        }
+
+        /* Tipografi Judul */
+        h1 {
+            font-family: 'Sora', Arial, sans-serif;
+            font-size: 32px;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--delft-blue);
+            line-height: 1.2;
+        }
+
+        h1 span {
+            color: var(--cinnabar);
+        }
+
+        p.subtitle {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        /* Kotak Pencarian */
+        .search-container {
+            position: relative;
+            width: 100%;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 16px;
+            border: 2px solid var(--delft-blue);
+            border-radius: 8px;
+            font-family: 'Gantari', sans-serif;
+            box-sizing: border-box;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--cinnabar);
+            box-shadow: 0 0 0 4px rgba(239, 65, 35, 0.1);
+        }
+
+        input[type="text"]:disabled {
+            background-color: #eee;
+            cursor: not-allowed;
+        }
+
+        /* Dropdown Autocomplete */
+        .suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-top: none;
+            max-height: 250px;
+            overflow-y: auto;
+            z-index: 10;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+        }
+
+        .suggestions.active {
+            display: block;
+        }
+
+        .suggestions li {
+            padding: 14px 20px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            font-weight: 500;
+        }
+
+        .suggestions li:hover {
+            background-color: rgba(28, 45, 90, 0.05);
+            color: var(--cinnabar);
+        }
+
+        /* Area Hasil / Penerima */
+        .result-box {
+            margin-top: auto;
+            margin-bottom: auto;
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .result-box.active {
+            display: block;
+        }
+
+        .address-to {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .address-lines {
+            font-family: 'Sora', sans-serif;
+            font-size: 24px;
+            border-bottom: 2px solid var(--delft-blue);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            color: var(--delft-blue);
+            text-transform: capitalize;
+        }
+
+        .address-details {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .tarif-display {
+            font-family: 'Sora', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--cinnabar);
+        }
+
+        .tarif-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--delft-blue);
+            font-family: 'Gantari', sans-serif;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .postcard-inner {
+                flex-direction: column;
+                padding: 25px;
+            }
+            .left-side {
+                border-right: none;
+                border-bottom: 2px dashed #B0B5C1;
+                padding-right: 0;
+                padding-bottom: 30px;
+                margin-bottom: 30px;
+            }
+            .right-side {
+                padding-left: 0;
+                min-height: 250px;
+            }
+            .stamp-area {
+                display: none;
+            }
+            header {
+                padding: 15px 20px;
+            }
+            .logo-danantara, .logo-pos {
+                height: 30px;
+            }
+            h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Danantara_Indonesia.svg" alt="Logo Danantara" class="logo-danantara">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/POSIND_2023.svg/3840px-POSIND_2023.svg.png" alt="Logo PosIND" class="logo-pos">
+    </header>
+
+    <main>
+        <div class="postcard">
+            <div class="postcard-inner">
+                
+                <div class="left-side">
+                    <h1>Tarif <span>Kartu Pos</span></h1>
+                    <p class="subtitle">Dari: <strong>Batam (29400)</strong></p>
+                    
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Sedang memuat data CSV..." disabled autocomplete="off">
+                        <ul id="suggestions" class="suggestions"></ul>
+                    </div>
+                </div>
+
+                <div class="right-side">
+                    <div class="stamp-area">PRANGKO</div>
+                    
+                    <div id="resultBox" class="result-box">
+                        <div class="address-to">Tujuan:</div>
+                        <div id="resTujuan" class="address-lines">-</div>
+                        <div class="address-details">
+                            <strong>ID Kantor (Kode Pos):</strong> <span id="resIdKantor">-</span><br>
+                            <strong>KPRK Tujuan:</strong> <span id="resKprk">-</span>
+                        </div>
+                        <span class="tarif-label">Tarif Kartu Pos:</span>
+                        <div class="tarif-display">
+                            Rp <span id="resTarif">0</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mengarahkan ke file CSV mentah (raw) di repository GitHub Anda
+        // Catatan: Jika branch utama Anda adalah 'master', ganti 'main' di URL bawah ini menjadi 'master'.
+        const csvUrl = 'https://raw.githubusercontent.com/newbieot/mailon/main/Tarif_Kartu_Pos_Batam_Lengkap.csv';
+        let postalData = [];
+
+        const searchInput = document.getElementById('searchInput');
+        const suggestionsList = document.getElementById('suggestions');
+        const resultBox = document.getElementById('resultBox');
+
+        // Fungsi untuk mengambil dan mem-parsing CSV
+        async function fetchCSV() {
+            try {
+                const response = await fetch(csvUrl);
+                if (!response.ok) throw new Error("Gagal mengambil data dari GitHub");
+                
+                const csvText = await response.text();
+                const lines = csvText.trim().split('\n');
+                
+                // Mulai dari index 1 untuk melewati baris header
+                for (let i = 1; i < lines.length; i++) {
+                    const cols = lines[i].split(',');
+                    // Memastikan ada 5 kolom sesuai file CSV yang kita buat sebelumnya
+                    if (cols.length >= 5) {
+                        postalData.push({
+                            asal: cols[0].trim(),
+                            tujuan: cols[1].trim(),
+                            idKantor: cols[2].trim(),
+                            kprk: cols[3].trim(),
+                            tarif: cols[4].trim()
+                        });
+                    }
+                }
+                
+                // Aktifkan input jika data sukses di-load
+                searchInput.disabled = false;
+                searchInput.placeholder = "Ketik nama Kota Tujuan (misal: Jakartapusat)...";
+            } catch (error) {
+                console.error(error);
+                searchInput.placeholder = "Gagal memuat data. Periksa URL CSV di kode.";
+            }
+        }
+
+        // Logic Autocomplete Search
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().replace(/\s+/g, ''); // hapus spasi jika user mengetik spasi
+            suggestionsList.innerHTML = '';
+            
+            if (!query) {
+                suggestionsList.classList.remove('active');
+                return;
+            }
+
+            // Filter data secara instan
+            const matches = postalData.filter(item => item.tujuan.toLowerCase().includes(query)).slice(0, 8); // Tampilkan max 8 hasil
+            
+            if (matches.length > 0) {
+                suggestionsList.classList.add('active');
+                matches.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item.tujuan;
+                    li.addEventListener('click', () => displayResult(item));
+                    suggestionsList.appendChild(li);
+                });
+            } else {
+                suggestionsList.classList.remove('active');
+            }
+        });
+
+        // Menyembunyikan saran dropdown jika klik di luar kotak pencarian
+        document.addEventListener('click', function(e) {
+            if (e.target !== searchInput && e.target !== suggestionsList) {
+                suggestionsList.classList.remove('active');
+            }
+        });
+
+        // Menampilkan Hasil ke DOM
+        function displayResult(item) {
+            searchInput.value = item.tujuan;
+            suggestionsList.classList.remove('active');
+            
+            document.getElementById('resTujuan').textContent = item.tujuan;
+            document.getElementById('resIdKantor').textContent = item.idKantor;
+            document.getElementById('resKprk').textContent = item.kprk;
+            document.getElementById('resTarif').textContent = item.tarif;
+            
+            resultBox.classList.add('active');
+        }
+
+        // Jalankan fetch saat halaman dimuat
+        document.addEventListener("DOMContentLoaded", fetchCSV);
+    </script>
+
+</body>
+</html>
