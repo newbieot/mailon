@@ -4,20 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Optimasi SEO: Title Tag, Description, Keywords, & Open Graph by Ikhsan Radiansyah -->
-    <title>Pencarian Tarif Kartu Pos Batam by Ikhsan Radiansyah | PosNew Hub</title>
-    <meta name="description" content="Aplikasi pencarian cepat Tarif Kartu Pos dari Batam ke seluruh Indonesia. Dikembangkan oleh Ikhsan Radiansyah untuk kemudahan cek tarif Pos Indonesia (PosIND).">
-    <meta name="keywords" content="Tarif Kartu Pos, Pos Indonesia, PosIND, Batam, Ikhsan Radiansyah, Cek Ongkir Pos, Kode Pos, Danantara">
+    <title>Tarif Kartu Pos Batam - Mailon Cafe | PosNew Hub</title>
+    <meta name="description" content="Cek tarif kartu pos domestik dan internasional secara instan dari Batam. Eksklusif untuk pengunjung Mailon Cafe. Developed by Ikhsan Radiansyah.">
+    <meta name="keywords" content="Tarif Kartu Pos, Pos Indonesia, PosIND, Batam, Mailon Cafe, Ikhsan Radiansyah, Cek Ongkir Pos, Postcard Tariff">
     <meta name="author" content="Ikhsan Radiansyah">
     <meta name="robots" content="index, follow">
     
-    <!-- Open Graph for Social Media Sharing -->
-    <meta property="og:title" content="Pencarian Tarif Kartu Pos Batam by Ikhsan Radiansyah">
-    <meta property="og:description" content="Cek tarif kartu pos secara instan dari Batam ke seluruh Indonesia.">
-    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/POSIND_2023.svg/3840px-POSIND_2023.svg.png">
+    <meta property="og:title" content="Tarif Kartu Pos Batam - Mailon Cafe">
+    <meta property="og:description" content="Cek tarif pengiriman kartu pos domestik dan internasional dengan cepat.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/newbieot/mailon/main/logo-mailon.webp">
     <meta property="og:type" content="website">
 
-    <!-- Favicon -->
     <link rel="icon" href="https://admin-piol.posindonesia.co.id/media/logo-posind-dark-1.png" type="image/png">
     
     <!-- Memuat font Sora dan Gantari dari Google Fonts -->
@@ -26,7 +23,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Gantari:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Variabel Warna sesuai Panduan Logo PosIND */
         :root {
             --delft-blue: #1C2D5A;
             --cinnabar: #EF4123;
@@ -53,27 +49,53 @@
             padding: 15px 40px;
             background-color: var(--card-bg);
             box-shadow: 0 2px 10px rgba(28, 45, 90, 0.1);
+            position: relative;
         }
 
-        .logo-danantara {
+        .logo-danantara, .logo-pos {
             height: 45px;
         }
 
-        .logo-pos {
-            height: 45px;
+        /* Toggle Bahasa */
+        .lang-toggle {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            background: var(--bg-color);
+            border-radius: 20px;
+            padding: 4px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        /* Container Utama */
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 16px;
+            font-family: 'Sora', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--delft-blue);
+            color: white;
+            box-shadow: 0 2px 6px rgba(28, 45, 90, 0.3);
+        }
+
         main {
             display: flex;
             justify-content: center;
             align-items: center;
-            flex: 1; /* Supaya konten terdorong ke tengah & footer ke bawah */
+            flex: 1; 
             padding: 20px;
             box-sizing: border-box;
         }
 
-        /* Desain Kartu Pos */
         .postcard {
             background-color: var(--card-bg);
             width: 100%;
@@ -102,7 +124,7 @@
             padding: 40px;
             box-sizing: border-box;
             border-radius: 2px;
-            min-height: 450px;
+            min-height: 480px;
         }
 
         .left-side {
@@ -122,7 +144,6 @@
             flex-direction: column;
         }
 
-        /* Area Prangko */
         .stamp-area {
             position: absolute;
             top: 0;
@@ -139,12 +160,18 @@
             background-color: #f1ede5;
         }
 
-        /* Tipografi Judul */
+        /* Logo Mailon */
+        .logo-mailon {
+            width: 160px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
         h1 {
             font-family: 'Sora', Arial, sans-serif;
             font-size: 32px;
             margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             color: var(--delft-blue);
             line-height: 1.2;
         }
@@ -153,13 +180,23 @@
             color: var(--cinnabar);
         }
 
+        p.greeting {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #666;
+            font-weight: 500;
+        }
+
         p.subtitle {
             font-size: 16px;
             margin-bottom: 30px;
-            color: #555;
+            color: var(--delft-blue);
+            background: rgba(28, 45, 90, 0.05);
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: inline-block;
         }
 
-        /* Kotak Pencarian */
         .search-container {
             position: relative;
             width: 100%;
@@ -187,7 +224,6 @@
             cursor: not-allowed;
         }
 
-        /* Dropdown Autocomplete */
         .suggestions {
             position: absolute;
             top: 100%;
@@ -218,12 +254,20 @@
             font-weight: 500;
         }
 
+        .suggestions li span.badge-type {
+            font-size: 11px;
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            float: right;
+            color: #666;
+        }
+
         .suggestions li:hover {
             background-color: rgba(28, 45, 90, 0.05);
             color: var(--cinnabar);
         }
 
-        /* Area Hasil / Penerima */
         .result-box {
             margin-top: auto;
             margin-bottom: auto;
@@ -249,12 +293,18 @@
             margin-bottom: 15px;
             color: var(--delft-blue);
             text-transform: capitalize;
+            line-height: 1.2;
         }
 
         .address-details {
             font-size: 15px;
             line-height: 1.6;
             margin-bottom: 25px;
+        }
+
+        .address-details span.val {
+            font-weight: 600;
+            color: var(--cinnabar);
         }
 
         .tarif-display {
@@ -273,7 +323,6 @@
             margin-bottom: 5px;
         }
 
-        /* Modern SaaS Footer (Dari index(38).html) */
         .dashboard-footer {
             width: 100%; 
             background-color: #0f172a; 
@@ -327,7 +376,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsif */
         @media (min-width: 851px) { 
             .footer-desc { display: block; } 
         }
@@ -351,10 +399,18 @@
                 display: none;
             }
             header {
+                flex-direction: column;
+                gap: 15px;
                 padding: 15px 20px;
             }
+            .lang-toggle {
+                position: relative;
+                left: 0;
+                transform: none;
+                margin-top: 5px;
+            }
             .logo-danantara, .logo-pos {
-                height: 30px;
+                height: 35px;
             }
             h1 {
                 font-size: 26px;
@@ -370,8 +426,13 @@
 <body>
 
     <header>
-        <!-- Logo Danantara (Diperbarui) -->
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Danantara_Indonesia_%28no_SW%29.svg/3840px-Danantara_Indonesia_%28no_SW%29.svg.png" alt="Logo Danantara" class="logo-danantara">
+        
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLanguage('id')">ID</button>
+            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+        </div>
+
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/POSIND_2023.svg/3840px-POSIND_2023.svg.png" alt="Logo PosIND" class="logo-pos">
     </header>
 
@@ -380,26 +441,36 @@
             <div class="postcard-inner">
                 
                 <div class="left-side">
-                    <h1>Tarif <span>Kartu Pos</span></h1>
-                    <p class="subtitle">Dari: <strong>Batam (29400)</strong></p>
+                    <!-- Logo Mailon ditambahkan di sini -->
+                    <img src="https://raw.githubusercontent.com/newbieot/mailon/main/logo-mailon.webp" alt="Mailon Cafe" class="logo-mailon">
+                    
+                    <p class="greeting" id="lblGreeting">Halo Pengunjung Mailon Cafe 👋</p>
+                    <h1 id="lblTitle">Tarif <span>Kartu Pos</span></h1>
+                    <p class="subtitle" id="lblFrom">Dari (Origin): <strong>Batam (29400)</strong></p>
                     
                     <div class="search-container">
-                        <input type="text" id="searchInput" placeholder="Sedang memuat data CSV..." disabled autocomplete="off">
+                        <input type="text" id="searchInput" placeholder="Sedang memuat data (Loading)..." disabled autocomplete="off">
                         <ul id="suggestions" class="suggestions"></ul>
                     </div>
                 </div>
 
                 <div class="right-side">
-                    <div class="stamp-area">PRANGKO</div>
+                    <div class="stamp-area" id="lblStamp">PRANGKO</div>
                     
                     <div id="resultBox" class="result-box">
-                        <div class="address-to">Tujuan:</div>
+                        <div class="address-to" id="lblTo">Tujuan (Destination):</div>
                         <div id="resTujuan" class="address-lines">-</div>
-                        <div class="address-details">
-                            <strong>ID Kantor (Kode Pos):</strong> <span id="resIdKantor">-</span><br>
-                            <strong>KPRK Tujuan:</strong> <span id="resKprk">-</span>
+                        
+                        <div class="address-details" id="detailDomestik">
+                            <strong id="lblZip">Kode Pos:</strong> <span class="val" id="resIdKantor">-</span><br>
+                            <strong id="lblKprk">KPRK Tujuan:</strong> <span class="val" id="resKprk">-</span>
                         </div>
-                        <span class="tarif-label">Tarif Kartu Pos:</span>
+                        
+                        <div class="address-details" id="detailIntl" style="display: none;">
+                            <strong id="lblCountryCode">Kode Negara:</strong> <span class="val" id="resCountryCode">-</span>
+                        </div>
+
+                        <span class="tarif-label" id="lblTariff">Tarif Kartu Pos (Tariff):</span>
                         <div class="tarif-display">
                             Rp <span id="resTarif">0</span>
                         </div>
@@ -410,64 +481,152 @@
         </div>
     </main>
 
-    <!-- COMPACT DASHBOARD FOOTER (SEO IKHSAN RADIANSYAH) -->
     <footer class="dashboard-footer">
         <div class="footer-brand">
             <i data-lucide="layers" style="color: #f26522; width: 18px; height: 18px;"></i>
             PosNew Hub
         </div>
-        <p class="footer-desc">Sistem utilitas ini dikembangkan secara independen untuk kemudahan pengecekan tarif kiriman Pos Indonesia.</p>
+        <p class="footer-desc" id="lblFooterDesc">Sistem utilitas ini dikembangkan secara independen untuk kemudahan pengecekan tarif kiriman Pos Indonesia di Mailon Cafe.</p>
         <div class="footer-creator-badge">
             <i data-lucide="code-2" style="color: #f26522; width: 14px; height: 14px;"></i>
-            Inovasi oleh <strong>Ikhsan Radiansyah</strong> &copy; 2026
+            <span id="lblBuiltBy">Inovasi oleh</span> <strong>Ikhsan Radiansyah</strong> &copy; 2026
         </div>
     </footer>
 
     <script>
-        // Mengarahkan ke file CSV mentah (raw) di repository GitHub Anda
-        const csvUrl = 'https://raw.githubusercontent.com/newbieot/mailon/main/Tarif_Kartu_Pos_Batam_Lengkap.csv';
+        // Kamus Bahasa (Dictionary)
+        const dict = {
+            id: {
+                greeting: "Halo Pengunjung Mailon Cafe 👋",
+                titleHTML: "Tarif <span>Kartu Pos</span>",
+                from: "Dari (Origin): <strong>Batam (29400)</strong>",
+                placeholderWait: "Sedang memuat data...",
+                placeholderReady: "Ketik Kota atau Negara Tujuan...",
+                stamp: "PRANGKO",
+                to: "Tujuan (Destination):",
+                zip: "ID Kantor (Kode Pos):",
+                kprk: "KPRK Tujuan:",
+                countryCode: "Kode Negara:",
+                tariff: "Tarif Kartu Pos:",
+                footerDesc: "Sistem utilitas ini dikembangkan secara independen untuk kemudahan pengecekan tarif kiriman Pos Indonesia di Mailon Cafe.",
+                builtBy: "Inovasi oleh",
+                badgeDom: "Domestik",
+                badgeIntl: "Luar Negeri"
+            },
+            en: {
+                greeting: "Hello Mailon Cafe Visitors 👋",
+                titleHTML: "Postcard <span>Tariff</span>",
+                from: "Origin: <strong>Batam (29400)</strong>",
+                placeholderWait: "Loading data...",
+                placeholderReady: "Type Destination City or Country...",
+                stamp: "STAMP",
+                to: "Destination:",
+                zip: "Postal Code:",
+                kprk: "Main Branch (KPRK):",
+                countryCode: "Country Code:",
+                tariff: "Postcard Tariff:",
+                footerDesc: "This utility system was developed independently for easy checking of Pos Indonesia shipping rates at Mailon Cafe.",
+                builtBy: "Built by",
+                badgeDom: "Domestic",
+                badgeIntl: "International"
+            }
+        };
+
+        let currentLang = 'id';
+
+        // URL File Raw dari Repositori Github
+        const domesticCsvUrl = 'https://raw.githubusercontent.com/newbieot/mailon/main/Tarif_Kartu_Pos_Batam_Lengkap.csv';
+        const internationalCsvUrl = 'https://raw.githubusercontent.com/newbieot/mailon/main/Tarif_Kartu_Pos_Internasional_Batam.csv';
         let postalData = [];
 
         const searchInput = document.getElementById('searchInput');
         const suggestionsList = document.getElementById('suggestions');
         const resultBox = document.getElementById('resultBox');
 
-        // Fungsi untuk mengambil dan mem-parsing CSV
-        async function fetchCSV() {
+        // Fungsi Ganti Bahasa
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Ubah class tombol aktif
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Terapkan translasi ke DOM
+            document.getElementById('lblGreeting').textContent = dict[lang].greeting;
+            document.getElementById('lblTitle').innerHTML = dict[lang].titleHTML;
+            document.getElementById('lblFrom').innerHTML = dict[lang].from;
+            document.getElementById('lblStamp').textContent = dict[lang].stamp;
+            document.getElementById('lblTo').textContent = dict[lang].to;
+            document.getElementById('lblZip').textContent = dict[lang].zip;
+            document.getElementById('lblKprk').textContent = dict[lang].kprk;
+            document.getElementById('lblCountryCode').textContent = dict[lang].countryCode;
+            document.getElementById('lblTariff').textContent = dict[lang].tariff;
+            document.getElementById('lblFooterDesc').textContent = dict[lang].footerDesc;
+            document.getElementById('lblBuiltBy').textContent = dict[lang].builtBy;
+
+            if(!searchInput.disabled) {
+                searchInput.placeholder = dict[lang].placeholderReady;
+            } else {
+                searchInput.placeholder = dict[lang].placeholderWait;
+            }
+            
+            // Trigger ulang pencarian jika ada text yang sedang diketik agar badge bahasanya update
+            searchInput.dispatchEvent(new Event('input'));
+        }
+
+        // Fetch Data Paralel
+        async function fetchAllData() {
             try {
-                const response = await fetch(csvUrl);
-                if (!response.ok) throw new Error("Gagal mengambil data dari GitHub");
+                const [domesticRes, intlRes] = await Promise.all([
+                    fetch(domesticCsvUrl),
+                    fetch(internationalCsvUrl)
+                ]);
+
+                if (!domesticRes.ok || !intlRes.ok) throw new Error("Gagal mengambil data dari GitHub");
                 
-                const csvText = await response.text();
-                const lines = csvText.trim().split('\n');
+                const domesticText = await domesticRes.text();
+                const intlText = await intlRes.text();
                 
-                // Mulai dari index 1 untuk melewati baris header
-                for (let i = 1; i < lines.length; i++) {
-                    const cols = lines[i].split(',');
-                    // Memastikan ada 5 kolom sesuai file CSV yang kita buat sebelumnya
+                // Parse Domestik
+                const domesticLines = domesticText.trim().split('\n');
+                for (let i = 1; i < domesticLines.length; i++) {
+                    const cols = domesticLines[i].split(',');
                     if (cols.length >= 5) {
                         postalData.push({
-                            asal: cols[0].trim(),
                             tujuan: cols[1].trim(),
                             idKantor: cols[2].trim(),
                             kprk: cols[3].trim(),
-                            tarif: cols[4].trim()
+                            tarif: cols[4].trim(),
+                            jenis: "domestik"
+                        });
+                    }
+                }
+
+                // Parse Internasional
+                const intlLines = intlText.trim().split('\n');
+                for (let i = 1; i < intlLines.length; i++) {
+                    const cols = intlLines[i].split(',');
+                    if (cols.length >= 4) {
+                        postalData.push({
+                            tujuan: cols[1].trim(),
+                            kodeNegara: cols[2].trim(),
+                            tarif: cols[3].trim(),
+                            jenis: "internasional"
                         });
                     }
                 }
                 
-                // Aktifkan input jika data sukses di-load
                 searchInput.disabled = false;
-                searchInput.placeholder = "Ketik nama Kota Tujuan (misal: Jakartapusat)...";
+                searchInput.placeholder = dict[currentLang].placeholderReady;
             } catch (error) {
                 console.error(error);
-                searchInput.placeholder = "Gagal memuat data. Periksa URL CSV di kode.";
+                searchInput.placeholder = "Error loading data / Gagal memuat data.";
             }
         }
 
-        // Logic Autocomplete Search
+        // Logic Autocomplete
         searchInput.addEventListener('input', function() {
-            const query = this.value.toLowerCase().replace(/\s+/g, ''); // hapus spasi jika user mengetik spasi
+            const query = this.value.toLowerCase().replace(/\s+/g, ''); 
             suggestionsList.innerHTML = '';
             
             if (!query) {
@@ -475,14 +634,16 @@
                 return;
             }
 
-            // Filter data secara instan
-            const matches = postalData.filter(item => item.tujuan.toLowerCase().includes(query)).slice(0, 8); // Tampilkan max 8 hasil
+            const matches = postalData.filter(item => item.tujuan.toLowerCase().includes(query)).slice(0, 8); 
             
             if (matches.length > 0) {
                 suggestionsList.classList.add('active');
                 matches.forEach(item => {
                     const li = document.createElement('li');
-                    li.textContent = item.tujuan;
+                    
+                    const badgeText = item.jenis === "domestik" ? dict[currentLang].badgeDom : dict[currentLang].badgeIntl;
+                    li.innerHTML = `${item.tujuan} <span class="badge-type">${badgeText}</span>`;
+                    
                     li.addEventListener('click', () => displayResult(item));
                     suggestionsList.appendChild(li);
                 });
@@ -491,31 +652,41 @@
             }
         });
 
-        // Menyembunyikan saran dropdown jika klik di luar kotak pencarian
         document.addEventListener('click', function(e) {
             if (e.target !== searchInput && e.target !== suggestionsList) {
                 suggestionsList.classList.remove('active');
             }
         });
 
-        // Menampilkan Hasil ke DOM
+        // Menampilkan Hasil
         function displayResult(item) {
             searchInput.value = item.tujuan;
             suggestionsList.classList.remove('active');
             
             document.getElementById('resTujuan').textContent = item.tujuan;
-            document.getElementById('resIdKantor').textContent = item.idKantor;
-            document.getElementById('resKprk').textContent = item.kprk;
-            document.getElementById('resTarif').textContent = item.tarif;
             
+            // Atur Visibilitas Detail (Domestik vs Internasional)
+            if(item.jenis === "domestik") {
+                document.getElementById('detailDomestik').style.display = 'block';
+                document.getElementById('detailIntl').style.display = 'none';
+                
+                document.getElementById('resIdKantor').textContent = item.idKantor;
+                document.getElementById('resKprk').textContent = item.kprk;
+            } else {
+                document.getElementById('detailDomestik').style.display = 'none';
+                document.getElementById('detailIntl').style.display = 'block';
+                
+                document.getElementById('resCountryCode').textContent = item.kodeNegara;
+            }
+            
+            document.getElementById('resTarif').textContent = item.tarif;
             resultBox.classList.add('active');
         }
 
         // Jalankan fetch saat halaman dimuat
-        document.addEventListener("DOMContentLoaded", fetchCSV);
+        document.addEventListener("DOMContentLoaded", fetchAllData);
     </script>
     
-    <!-- Script Lucide Icons untuk render ikon di footer -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         lucide.createIcons();
