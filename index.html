@@ -4,169 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Mailon Artisan Desserts & Cafe | Postcard Tariff</title>
-    <meta name="description" content="Kirim kenangan manis dari Mailon Cafe, Batam. Cek tarif pengiriman kartu pos domestik dan internasional (Pos Indonesia) secara instan di sini.">
-    <meta name="keywords" content="Mailon Cafe, Mailon Batam, Artisan Desserts, Tarif Kartu Pos, Pos Indonesia, PosIND, Nagoya, Ikhsan Radiansyah">
+    <title>Tarif Kartu Pos Batam - Mailon Cafe | PosNew Hub</title>
+    <meta name="description" content="Cek tarif kartu pos domestik dan internasional secara instan dari Batam. Eksklusif untuk pengunjung Mailon Cafe. Developed by Ikhsan Radiansyah.">
+    <meta name="keywords" content="Tarif Kartu Pos, Pos Indonesia, PosIND, Batam, Mailon Cafe, Ikhsan Radiansyah, Cek Ongkir Pos, Postcard Tariff">
     <meta name="author" content="Ikhsan Radiansyah">
     <meta name="robots" content="index, follow">
     
-    <meta property="og:title" content="Mailon Cafe - Stamped in Sweetness">
-    <meta property="og:description" content="Send a postcard from Mailon Cafe! Check domestic and international shipping rates instantly.">
+    <meta property="og:title" content="Tarif Kartu Pos Batam - Mailon Cafe">
+    <meta property="og:description" content="Cek tarif pengiriman kartu pos domestik dan internasional dengan cepat.">
     <meta property="og:image" content="https://raw.githubusercontent.com/newbieot/mailon/main/logo-mailon.webp">
     <meta property="og:type" content="website">
 
     <link rel="icon" href="https://admin-piol.posindonesia.co.id/media/logo-posind-dark-1.png" type="image/png">
     
+    <!-- Memuat font Sora dan Gantari dari Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gantari:wght@400;500;600&family=Sora:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gantari:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* PosIND Colors */
             --delft-blue: #1C2D5A;
             --cinnabar: #EF4123;
-            /* Mailon Cafe Colors (Derived from photos) */
-            --mailon-latte: #E8D3BA; /* Light wood/facade color */
-            --mailon-espresso: #4A3525; /* Dark brown mailbox/signage color */
-            --mailon-cream: #F9F6F0; /* Soft background */
-            --mailon-white: #FFFFFF;
+            --bg-color: #F8F5F0;
+            --card-bg: #FFFFFF;
         }
 
         body {
             font-family: 'Gantari', Arial, sans-serif;
-            background-color: var(--mailon-cream);
+            background-color: var(--bg-color);
             margin: 0;
             padding: 0;
-            color: var(--mailon-espresso);
+            color: var(--delft-blue);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* 1. TOP HEADER (Brand Collaboration) */
+        /* Header Logo */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 30px;
-            background-color: var(--mailon-white);
-            box-shadow: 0 2px 15px rgba(74, 53, 37, 0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 15px 40px;
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(28, 45, 90, 0.1);
+            position: relative;
         }
 
-        .logo-danantara { height: 35px; }
-        .logo-pos { height: 35px; }
+        .logo-danantara, .logo-pos {
+            height: 45px;
+        }
 
+        /* Toggle Bahasa */
         .lang-toggle {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            background: var(--mailon-cream);
+            background: var(--bg-color);
             border-radius: 20px;
             padding: 4px;
-            border: 1px solid rgba(74, 53, 37, 0.1);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .lang-btn {
             background: transparent;
             border: none;
-            padding: 5px 15px;
+            padding: 6px 16px;
             border-radius: 16px;
             font-family: 'Sora', sans-serif;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
             color: #888;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
         .lang-btn.active {
-            background: var(--mailon-espresso);
-            color: var(--mailon-latte);
+            background: var(--delft-blue);
+            color: white;
+            box-shadow: 0 2px 6px rgba(28, 45, 90, 0.3);
         }
 
-        /* 2. HERO SECTION (Mailon Concept) */
-        .hero-section {
-            background-color: var(--mailon-espresso);
-            color: var(--mailon-latte);
-            text-align: center;
-            padding: 60px 20px 70px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Decorative Stamp Border at the bottom of Hero */
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 20px;
-            background-image: radial-gradient(circle at 10px 0, transparent 10px, var(--mailon-cream) 11px);
-            background-size: 20px 20px;
-            background-repeat: repeat-x;
-        }
-
-        .hero-logo {
-            width: 280px;
-            max-width: 90%;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            margin: 0 0 15px 0;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            color: var(--mailon-white);
-        }
-
-        .hero-desc {
-            font-size: 1rem;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-            opacity: 0.9;
-        }
-
-        .hero-tagline {
-            display: inline-block;
-            margin-top: 25px;
-            font-family: 'Sora', sans-serif;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 1px solid var(--mailon-latte);
-            padding: 8px 20px;
-            border-radius: 30px;
-        }
-
-        /* 3. TARIFF SEARCH AREA */
         main {
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             flex: 1; 
-            padding: 40px 20px 60px;
+            padding: 20px;
             box-sizing: border-box;
         }
 
         .postcard {
-            background-color: var(--mailon-white);
+            background-color: var(--card-bg);
             width: 100%;
-            max-width: 950px;
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(74, 53, 37, 0.1);
+            max-width: 900px;
+            border-radius: 4px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             position: relative;
             padding: 12px;
-            /* Mail border style with PosIND & Mailon colors */
             background-image: 
                 repeating-linear-gradient(
                     -45deg,
@@ -182,25 +119,26 @@
         }
 
         .postcard-inner {
-            background-color: var(--mailon-cream);
+            background-color: var(--bg-color);
             display: flex;
-            padding: 45px;
+            padding: 40px;
             box-sizing: border-box;
-            border-radius: 4px;
+            border-radius: 2px;
             min-height: 480px;
         }
 
         .left-side {
-            flex: 1.1;
-            padding-right: 45px;
-            border-right: 2px dashed #D0C6B8;
+            flex: 1.2;
+            padding-right: 40px;
+            border-right: 2px dashed #B0B5C1;
             display: flex;
             flex-direction: column;
+            justify-content: center;
         }
 
         .right-side {
-            flex: 0.9;
-            padding-left: 45px;
+            flex: 0.8;
+            padding-left: 40px;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -210,43 +148,53 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 85px;
-            height: 100px;
-            border: 2px dashed #B0A598;
+            width: 80px;
+            height: 95px;
+            border: 2px solid #B0B5C1;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-family: 'Sora', sans-serif;
-            font-size: 10px;
-            color: #A09588;
+            font-size: 11px;
+            color: #B0B5C1;
             letter-spacing: 1px;
-            background-color: #EFECE5;
-            border-radius: 4px;
-            text-align: center;
-        }
-        
-        .stamp-area i {
-            margin-bottom: 5px;
-            color: var(--cinnabar);
-            opacity: 0.7;
+            background-color: #f1ede5;
         }
 
-        .widget-title {
-            font-family: 'Sora', sans-serif;
-            font-size: 28px;
+        /* Logo Mailon */
+        .logo-mailon {
+            width: 160px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Sora', Arial, sans-serif;
+            font-size: 32px;
             margin-top: 0;
-            margin-bottom: 15px;
-            color: var(--mailon-espresso);
+            margin-bottom: 5px;
+            color: var(--delft-blue);
             line-height: 1.2;
-            font-weight: 800;
         }
 
-        .widget-desc {
-            font-size: 15px;
-            margin-bottom: 30px;
+        h1 span {
+            color: var(--cinnabar);
+        }
+
+        p.greeting {
+            font-size: 14px;
+            margin-bottom: 10px;
             color: #666;
-            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        p.subtitle {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: var(--delft-blue);
+            background: rgba(28, 45, 90, 0.05);
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: inline-block;
         }
 
         .search-container {
@@ -254,39 +202,26 @@
             width: 100%;
         }
 
-        .search-label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--mailon-espresso);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
         input[type="text"] {
             width: 100%;
             padding: 16px 20px;
             font-size: 16px;
-            border: 2px solid #D0C6B8;
+            border: 2px solid var(--delft-blue);
             border-radius: 8px;
             font-family: 'Gantari', sans-serif;
             box-sizing: border-box;
             outline: none;
             transition: all 0.3s;
-            background-color: var(--mailon-white);
-            color: var(--mailon-espresso);
         }
 
         input[type="text"]:focus {
-            border-color: var(--mailon-espresso);
-            box-shadow: 0 0 0 4px rgba(74, 53, 37, 0.1);
+            border-color: var(--cinnabar);
+            box-shadow: 0 0 0 4px rgba(239, 65, 35, 0.1);
         }
 
         input[type="text"]:disabled {
-            background-color: #EFECE5;
+            background-color: #eee;
             cursor: not-allowed;
-            border-color: #EFECE5;
         }
 
         .suggestions {
@@ -294,14 +229,14 @@
             top: 100%;
             left: 0;
             right: 0;
-            background: var(--mailon-white);
-            border: 1px solid #D0C6B8;
+            background: #fff;
+            border: 1px solid #ccc;
             border-top: none;
             max-height: 250px;
             overflow-y: auto;
             z-index: 10;
             border-radius: 0 0 8px 8px;
-            box-shadow: 0 10px 25px rgba(74, 53, 37, 0.15);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             list-style: none;
             padding: 0;
             margin: 0;
@@ -313,27 +248,23 @@
         }
 
         .suggestions li {
-            padding: 15px 20px;
+            padding: 14px 20px;
             cursor: pointer;
-            border-bottom: 1px solid #F5F2EB;
+            border-bottom: 1px solid #f0f0f0;
             font-weight: 500;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .suggestions li span.badge-type {
-            font-size: 10px;
-            background: var(--mailon-latte);
-            padding: 3px 8px;
-            border-radius: 12px;
-            color: var(--mailon-espresso);
-            font-weight: 700;
-            text-transform: uppercase;
+            font-size: 11px;
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            float: right;
+            color: #666;
         }
 
         .suggestions li:hover {
-            background-color: var(--mailon-cream);
+            background-color: rgba(28, 45, 90, 0.05);
             color: var(--cinnabar);
         }
 
@@ -341,12 +272,7 @@
             margin-top: auto;
             margin-bottom: auto;
             display: none;
-            animation: fadeIn 0.5s ease-in-out;
-            background: var(--mailon-white);
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid #EFECE5;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            animation: fadeIn 0.4s ease-in-out;
         }
 
         .result-box.active {
@@ -354,87 +280,72 @@
         }
 
         .address-to {
-            font-size: 12px;
-            color: #888;
+            font-size: 14px;
+            color: #555;
             margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
         }
 
         .address-lines {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
-            padding-bottom: 15px;
+            font-family: 'Sora', sans-serif;
+            font-size: 24px;
+            border-bottom: 2px solid var(--delft-blue);
+            padding-bottom: 5px;
             margin-bottom: 15px;
-            color: var(--mailon-espresso);
+            color: var(--delft-blue);
             text-transform: capitalize;
             line-height: 1.2;
-            border-bottom: 1px solid #EFECE5;
         }
 
         .address-details {
-            font-size: 14px;
-            line-height: 1.8;
+            font-size: 15px;
+            line-height: 1.6;
             margin-bottom: 25px;
-            color: #555;
         }
 
         .address-details span.val {
-            font-weight: 700;
-            color: var(--delft-blue);
+            font-weight: 600;
+            color: var(--cinnabar);
+        }
+
+        .tarif-display {
+            font-family: 'Sora', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--cinnabar);
         }
 
         .tarif-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--delft-blue);
+            font-family: 'Gantari', sans-serif;
             display: block;
             margin-bottom: 5px;
         }
-        
-        .tarif-display {
-            font-family: 'Sora', sans-serif;
-            font-size: 38px;
-            font-weight: 800;
-            color: var(--cinnabar);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
 
-        .currency {
-            font-size: 20px;
-            color: var(--mailon-espresso);
-            font-weight: 600;
-        }
-
-        /* 4. FOOTER */
         .dashboard-footer {
             width: 100%; 
-            background-color: var(--mailon-espresso); 
-            border-top: 3px solid var(--mailon-latte);
+            background-color: #0f172a; 
+            border-top: 3px solid var(--cinnabar);
             display: flex; 
             justify-content: space-between; 
             align-items: center;
-            padding: 15px 30px; 
+            padding: 10px 24px; 
             flex-shrink: 0; 
             z-index: 20;
             box-sizing: border-box;
-            color: var(--mailon-white);
         }
         .footer-brand { 
             display: flex; 
             align-items: center; 
             gap: 8px; 
+            color: #f8fafc; 
             font-weight: 700; 
             font-size: 0.95rem; 
             letter-spacing: 0.5px; 
         }
         .footer-desc { 
-            color: rgba(255,255,255,0.7); 
+            color: #94a3b8; 
             font-size: 0.8rem; 
             margin: 0; 
             display: none; 
@@ -443,29 +354,50 @@
             display: inline-flex; 
             align-items: center; 
             gap: 6px; 
-            background: rgba(255, 255, 255, 0.1); 
-            border: 1px solid rgba(255, 255, 255, 0.2); 
-            padding: 5px 14px; 
+            background: rgba(242, 101, 34, 0.1); 
+            border: 1px solid rgba(242, 101, 34, 0.2); 
+            padding: 4px 12px; 
             border-radius: 20px; 
+            color: #e2e8f0; 
             font-size: 0.75rem; 
             transition: all 0.3s ease;
         }
         .footer-creator-badge:hover { 
-            background: var(--mailon-latte); 
-            color: var(--mailon-espresso);
-            border-color: var(--mailon-latte); 
+            background: rgba(242, 101, 34, 0.2); 
+            border-color: rgba(242, 101, 34, 0.5); 
+        }
+        .footer-creator-badge strong { 
+            color: var(--cinnabar); 
+            font-weight: 600; 
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsif */
         @media (min-width: 851px) { 
             .footer-desc { display: block; } 
         }
         @media (max-width: 850px) {
+            .postcard-inner {
+                flex-direction: column;
+                padding: 25px;
+            }
+            .left-side {
+                border-right: none;
+                border-bottom: 2px dashed #B0B5C1;
+                padding-right: 0;
+                padding-bottom: 30px;
+                margin-bottom: 30px;
+            }
+            .right-side {
+                padding-left: 0;
+                min-height: 250px;
+            }
+            .stamp-area {
+                display: none;
+            }
             header {
                 flex-direction: column;
                 gap: 15px;
@@ -477,34 +409,15 @@
                 transform: none;
                 margin-top: 5px;
             }
-            .logo-danantara, .logo-pos { height: 30px; }
-            
-            .hero-section { padding: 40px 20px 50px; }
-            .hero-title { font-size: 1.8rem; }
-            
-            .postcard-inner {
-                flex-direction: column;
-                padding: 25px;
+            .logo-danantara, .logo-pos {
+                height: 35px;
             }
-            .left-side {
-                border-right: none;
-                border-bottom: 2px dashed #D0C6B8;
-                padding-right: 0;
-                padding-bottom: 35px;
-                margin-bottom: 35px;
+            h1 {
+                font-size: 26px;
             }
-            .right-side {
-                padding-left: 0;
-                min-height: auto;
-            }
-            .stamp-area { display: none; }
-            
-            .widget-title { font-size: 24px; }
-            .tarif-display { font-size: 32px; }
-            
             .dashboard-footer { 
                 flex-direction: column; 
-                gap: 10px; 
+                gap: 8px; 
                 text-align: center; 
             }
         }
@@ -512,7 +425,6 @@
 </head>
 <body>
 
-    <!-- 1. HEADER LOGO -->
     <header>
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Danantara_Indonesia_%28no_SW%29.svg/3840px-Danantara_Indonesia_%28no_SW%29.svg.png" alt="Logo Danantara" class="logo-danantara">
         
@@ -524,52 +436,43 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/POSIND_2023.svg/3840px-POSIND_2023.svg.png" alt="Logo PosIND" class="logo-pos">
     </header>
 
-    <!-- 2. HERO SECTION -->
-    <div class="hero-section">
-        <img src="https://raw.githubusercontent.com/newbieot/mailon/main/logo-mailon.webp" alt="Mailon Artisan Desserts & Cafe" class="hero-logo">
-        <h2 class="hero-title" id="lblHeroTitle">Kirim Kenangan Manis</h2>
-        <p class="hero-desc" id="lblHeroDesc">Duduk sejenak, nikmati hidangan penutup spesial kami, dan tuliskan pesan untuk orang tersayang. Kami yang akan memastikan kartu pos Anda sampai ke tujuan melalui jaringan tepercaya Pos Indonesia.</p>
-        <div class="hero-tagline" id="lblTagline">Stamped in sweetness. Sealed in connection.</div>
-    </div>
-
-    <!-- 3. TARIFF SEARCH -->
     <main>
         <div class="postcard">
             <div class="postcard-inner">
                 
                 <div class="left-side">
-                    <h1 class="widget-title" id="lblWidgetTitle">Cek Tarif <span>Pengiriman</span></h1>
-                    <p class="widget-desc" id="lblWidgetDesc">Ketahui biaya prangko yang dibutuhkan sebelum memasukkan kartu pos Anda ke dalam kotak pos ikonik kami di depan kafe.</p>
+                    <!-- Logo Mailon ditambahkan di sini -->
+                    <img src="https://raw.githubusercontent.com/newbieot/mailon/main/logo-mailon.webp" alt="Mailon Cafe" class="logo-mailon">
+                    
+                    <p class="greeting" id="lblGreeting">Halo Pengunjung Mailon Cafe 👋</p>
+                    <h1 id="lblTitle">Tarif <span>Kartu Pos</span></h1>
+                    <p class="subtitle" id="lblFrom">Dari (Origin): <strong>Batam (29400)</strong></p>
                     
                     <div class="search-container">
-                        <span class="search-label" id="lblSearchLabel">Kota / Negara Tujuan:</span>
-                        <input type="text" id="searchInput" placeholder="Menyiapkan data (Loading)..." disabled autocomplete="off">
+                        <input type="text" id="searchInput" placeholder="Sedang memuat data (Loading)..." disabled autocomplete="off">
                         <ul id="suggestions" class="suggestions"></ul>
                     </div>
                 </div>
 
                 <div class="right-side">
-                    <div class="stamp-area" id="lblStamp">
-                        <i data-lucide="mail" style="width: 24px; height: 24px;"></i>
-                        <span>PRANGKO</span>
-                    </div>
+                    <div class="stamp-area" id="lblStamp">PRANGKO</div>
                     
                     <div id="resultBox" class="result-box">
-                        <div class="address-to" id="lblTo">Detail Tujuan:</div>
+                        <div class="address-to" id="lblTo">Tujuan (Destination):</div>
                         <div id="resTujuan" class="address-lines">-</div>
                         
                         <div class="address-details" id="detailDomestik">
-                            <span id="lblZip">Kode Pos:</span> <span class="val" id="resIdKantor">-</span><br>
-                            <span id="lblKprk">KPRK Tujuan:</span> <span class="val" id="resKprk">-</span>
+                            <strong id="lblZip">Kode Pos:</strong> <span class="val" id="resIdKantor">-</span><br>
+                            <strong id="lblKprk">KPRK Tujuan:</strong> <span class="val" id="resKprk">-</span>
                         </div>
                         
                         <div class="address-details" id="detailIntl" style="display: none;">
-                            <span id="lblCountryCode">Kode Negara:</span> <span class="val" id="resCountryCode">-</span>
+                            <strong id="lblCountryCode">Kode Negara:</strong> <span class="val" id="resCountryCode">-</span>
                         </div>
 
-                        <span class="tarif-label" id="lblTariff">Estimasi Biaya Prangko:</span>
+                        <span class="tarif-label" id="lblTariff">Tarif Kartu Pos (Tariff):</span>
                         <div class="tarif-display">
-                            <span class="currency">Rp</span> <span id="resTarif">0</span>
+                            Rp <span id="resTarif">0</span>
                         </div>
                     </div>
                 </div>
@@ -578,16 +481,15 @@
         </div>
     </main>
 
-    <!-- 4. FOOTER -->
     <footer class="dashboard-footer">
         <div class="footer-brand">
-            <i data-lucide="layers" style="color: var(--mailon-latte); width: 18px; height: 18px;"></i>
+            <i data-lucide="layers" style="color: #f26522; width: 18px; height: 18px;"></i>
             PosNew Hub
         </div>
-        <p class="footer-desc" id="lblFooterDesc">Sistem utilitas pendukung layanan kartu pos di Mailon Cafe Nagoya, Kota Batam.</p>
+        <p class="footer-desc" id="lblFooterDesc">Sistem utilitas ini dikembangkan secara independen untuk kemudahan pengecekan tarif kiriman Pos Indonesia di Mailon Cafe.</p>
         <div class="footer-creator-badge">
-            <i data-lucide="code-2" style="width: 14px; height: 14px;"></i>
-            <span id="lblBuiltBy">Website oleh</span> &nbsp;<strong>Ikhsan Radiansyah</strong> &copy; 2026
+            <i data-lucide="code-2" style="color: #f26522; width: 14px; height: 14px;"></i>
+            <span id="lblBuiltBy">Inovasi oleh</span> <strong>Ikhsan Radiansyah</strong> &copy; 2026
         </div>
     </footer>
 
@@ -595,42 +497,36 @@
         // Kamus Bahasa (Dictionary)
         const dict = {
             id: {
-                heroTitle: "Kirim Kenangan Manis",
-                heroDesc: "Duduk sejenak, nikmati hidangan penutup spesial kami, dan tuliskan pesan untuk orang tersayang. Kami yang akan memastikan kartu pos Anda sampai ke tujuan melalui jaringan tepercaya Pos Indonesia.",
-                tagline: "Stamped in sweetness. Sealed in connection.",
-                widgetTitle: "Cek Tarif <span>Pengiriman</span>",
-                widgetDesc: "Ketahui biaya prangko yang dibutuhkan sebelum memasukkan kartu pos Anda ke dalam kotak pos ikonik kami di depan kafe.",
-                searchLabel: "Kota / Negara Tujuan:",
-                placeholderWait: "Menyiapkan data...",
-                placeholderReady: "Ketik nama kota atau negara...",
-                stamp: "<span>PRANGKO</span>",
-                to: "Detail Tujuan:",
-                zip: "Kode Pos:",
-                kprk: "Kantor Tujuan:",
+                greeting: "Halo Pengunjung Mailon Cafe 👋",
+                titleHTML: "Tarif <span>Kartu Pos</span>",
+                from: "Dari (Origin): <strong>Batam (29400)</strong>",
+                placeholderWait: "Sedang memuat data...",
+                placeholderReady: "Ketik Kota atau Negara Tujuan...",
+                stamp: "PRANGKO",
+                to: "Tujuan (Destination):",
+                zip: "ID Kantor (Kode Pos):",
+                kprk: "KPRK Tujuan:",
                 countryCode: "Kode Negara:",
-                tariff: "Estimasi Biaya Prangko:",
-                footerDesc: "Sistem utilitas pendukung layanan kartu pos di Mailon Cafe Nagoya, Kota Batam.",
-                builtBy: "Website oleh",
+                tariff: "Tarif Kartu Pos:",
+                footerDesc: "Sistem utilitas ini dikembangkan secara independen untuk kemudahan pengecekan tarif kiriman Pos Indonesia di Mailon Cafe.",
+                builtBy: "Inovasi oleh",
                 badgeDom: "Domestik",
                 badgeIntl: "Luar Negeri"
             },
             en: {
-                heroTitle: "Send Sweet Memories",
-                heroDesc: "Take a seat, enjoy our artisan desserts, and write a message to your loved ones. We'll make sure your postcard arrives safely through Pos Indonesia's trusted network.",
-                tagline: "Stamped in sweetness. Sealed in connection.",
-                widgetTitle: "Check <span>Shipping Rates</span>",
-                widgetDesc: "Find out the stamp cost before dropping your postcard into our iconic mailbox right at the storefront.",
-                searchLabel: "Destination City / Country:",
-                placeholderWait: "Loading database...",
-                placeholderReady: "Type a city or country...",
-                stamp: "<span>STAMP</span>",
-                to: "Destination Details:",
+                greeting: "Hello Mailon Cafe Visitors 👋",
+                titleHTML: "Postcard <span>Tariff</span>",
+                from: "Origin: <strong>Batam (29400)</strong>",
+                placeholderWait: "Loading data...",
+                placeholderReady: "Type Destination City or Country...",
+                stamp: "STAMP",
+                to: "Destination:",
                 zip: "Postal Code:",
-                kprk: "Main Branch:",
+                kprk: "Main Branch (KPRK):",
                 countryCode: "Country Code:",
-                tariff: "Estimated Stamp Cost:",
-                footerDesc: "Utility system supporting the postcard service at Mailon Cafe Nagoya, Batam City.",
-                builtBy: "Website by",
+                tariff: "Postcard Tariff:",
+                footerDesc: "This utility system was developed independently for easy checking of Pos Indonesia shipping rates at Mailon Cafe.",
+                builtBy: "Built by",
                 badgeDom: "Domestic",
                 badgeIntl: "International"
             }
@@ -638,9 +534,9 @@
 
         let currentLang = 'id';
 
-        // GANTI INI JIKA ADA PERUBAHAN NAMA FILE DI GITHUB!
+        // URL File Raw dari Repositori Github
         const domesticCsvUrl = 'https://raw.githubusercontent.com/newbieot/mailon/main/Tarif_Kartu_Pos_Batam_Lengkap.csv';
-        const internationalCsvUrl = 'https://raw.githubusercontent.com/newbieot/mailon/main/Tarif_Kartu_Pos_Internasional_Batam_2.csv'; 
+        const internationalCsvUrl = 'https://raw.githubusercontent.com/newbieot/mailon/main/Tarif_Kartu_Pos_Internasional_Batam.csv';
         let postalData = [];
 
         const searchInput = document.getElementById('searchInput');
@@ -651,21 +547,15 @@
         function setLanguage(lang) {
             currentLang = lang;
             
+            // Ubah class tombol aktif
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
 
-            // Terjemahkan DOM
-            document.getElementById('lblHeroTitle').textContent = dict[lang].heroTitle;
-            document.getElementById('lblHeroDesc').textContent = dict[lang].heroDesc;
-            document.getElementById('lblTagline').textContent = dict[lang].tagline;
-            document.getElementById('lblWidgetTitle').innerHTML = dict[lang].widgetTitle;
-            document.getElementById('lblWidgetDesc').textContent = dict[lang].widgetDesc;
-            document.getElementById('lblSearchLabel').textContent = dict[lang].searchLabel;
-            
-            // Stamp content perlu append icon lucide
-            document.getElementById('lblStamp').innerHTML = `<i data-lucide="mail" style="width: 24px; height: 24px; margin-bottom: 5px; color: var(--cinnabar); opacity: 0.7;"></i>` + dict[lang].stamp;
-            lucide.createIcons(); // render ulang icon
-            
+            // Terapkan translasi ke DOM
+            document.getElementById('lblGreeting').textContent = dict[lang].greeting;
+            document.getElementById('lblTitle').innerHTML = dict[lang].titleHTML;
+            document.getElementById('lblFrom').innerHTML = dict[lang].from;
+            document.getElementById('lblStamp').textContent = dict[lang].stamp;
             document.getElementById('lblTo').textContent = dict[lang].to;
             document.getElementById('lblZip').textContent = dict[lang].zip;
             document.getElementById('lblKprk').textContent = dict[lang].kprk;
@@ -680,6 +570,7 @@
                 searchInput.placeholder = dict[lang].placeholderWait;
             }
             
+            // Trigger ulang pencarian jika ada text yang sedang diketik agar badge bahasanya update
             searchInput.dispatchEvent(new Event('input'));
         }
 
@@ -729,7 +620,7 @@
                 searchInput.placeholder = dict[currentLang].placeholderReady;
             } catch (error) {
                 console.error(error);
-                searchInput.placeholder = "Error loading database.";
+                searchInput.placeholder = "Error loading data / Gagal memuat data.";
             }
         }
 
@@ -751,7 +642,7 @@
                     const li = document.createElement('li');
                     
                     const badgeText = item.jenis === "domestik" ? dict[currentLang].badgeDom : dict[currentLang].badgeIntl;
-                    li.innerHTML = `<span>${item.tujuan}</span> <span class="badge-type">${badgeText}</span>`;
+                    li.innerHTML = `${item.tujuan} <span class="badge-type">${badgeText}</span>`;
                     
                     li.addEventListener('click', () => displayResult(item));
                     suggestionsList.appendChild(li);
@@ -774,7 +665,7 @@
             
             document.getElementById('resTujuan').textContent = item.tujuan;
             
-            // Tampilan Berdasarkan Jenis Kiriman
+            // Atur Visibilitas Detail (Domestik vs Internasional)
             if(item.jenis === "domestik") {
                 document.getElementById('detailDomestik').style.display = 'block';
                 document.getElementById('detailIntl').style.display = 'none';
@@ -792,6 +683,7 @@
             resultBox.classList.add('active');
         }
 
+        // Jalankan fetch saat halaman dimuat
         document.addEventListener("DOMContentLoaded", fetchAllData);
     </script>
     
